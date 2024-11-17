@@ -20,7 +20,7 @@ public class FlightBusinessImp implements FlightBusiness {
 	@Override
 	public void update(Long flightNumber) throws InvalidObjectException {
 		if (flightNumber == null) {
-			throw new InvalidObjectException("Flight does not exist.")
+			throw new InvalidObjectException("Flight does not exist.");
 		}
 		flightDAO.updateFlight(flightNumber);
 	}
