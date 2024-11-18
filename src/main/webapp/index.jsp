@@ -7,6 +7,8 @@
 <title>Login</title>
 </head>
 <body>
+	<jsp:include page="/includes/navbar.html"></jsp:include>
+
 	<form action="/airport/frontController" method="post">
 		<input type="text" id="command" name="command" value="LoginCommand" hidden="hidden">
 		<input type="text" id="action" name="action" value="login" hidden="hidden">

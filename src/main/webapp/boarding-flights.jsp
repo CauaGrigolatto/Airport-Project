@@ -12,21 +12,13 @@
 <title>Manage Flights</title>
 </head>
 <body>
+	<jsp:include page="/includes/navbar.html"></jsp:include>
+
 	<%
 	List<FlightData> flights = new FlightBusinessImp().getBoardingFlights();
 	%>
 
-	<h2>Arriving Flights</h2>
-	
-	<a href="/airport/flight-form.jsp">Create flight</a>
-	
-	<a href="/airport/manage-flights.jsp">Manage flights</a>
-	
-	<a href="/airport/arriving-flights.jsp">Arriving flights</a>
-	
-	<a href="/airport/boarding-flights.jsp">Boarding flights</a>
-	
-	<a href="/airport/taking-off-flights.jsp">Taking off flights</a>
+	<h2>Boarding Flights</h2>
 	
 	<table>
 		<thead>

@@ -7,21 +7,13 @@
 <title>Home Page</title>
 </head>
 <body>
+	<jsp:include page="/includes/navbar.html"></jsp:include>
+
 	<%
 	boolean isLogged = new LoginBusinessImp().isLogged(request);
 	if (isLogged) {
 	%>
 	<h2>Home Page</h2>
-	
-	<a href="/airport/flight-form.jsp">Create flight</a>
-	
-	<a href="/airport/manage-flights.jsp">Manage flights</a>
-	
-	<a href="/airport/arriving-flights.jsp">Arriving flights</a>
-	
-	<a href="/airport/boarding-flights.jsp">Boarding flights</a>
-	
-	<a href="/airport/taking-off-flights.jsp">Taking off flights</a>
 	
 	<%
 	}
