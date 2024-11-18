@@ -1,6 +1,7 @@
 package br.edu.ifsp.dsw1.business;
 
 import java.io.InvalidObjectException;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,6 +16,11 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public class FlightBusinessImp implements FlightBusiness {
 	private static final FlightDataCollection flightDAO = new FlightDataCollection();
+	
+	@Override
+	public List<FlightData> getAllFlights() {
+		return flightDAO.getAllFligthts();
+	}
 	
 	@Override
 	public void insert(FlightData flight) throws InvalidObjectException {

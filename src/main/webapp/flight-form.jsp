@@ -15,7 +15,7 @@
 	
 	<a href="/airport/flight-form.jsp">Create flight</a>
 	
-	<a href="">Manage flights</a>
+	<a href="/airport/manage-flights.jsp">Manage flights</a>
 	
 	<br> <br>
 	

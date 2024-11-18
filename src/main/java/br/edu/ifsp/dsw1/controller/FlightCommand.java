@@ -18,7 +18,7 @@ public class FlightCommand implements Command {
 			String action = request.getParameter("action");
 			
 			if ("createFlight".equals(action)) {
-				return createFlight(request, response);
+				return createFlight(request);
 			}
 			
 		}
@@ -29,7 +29,7 @@ public class FlightCommand implements Command {
 		return "/home.jsp";			
 	}
 
-	private String createFlight(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+	private String createFlight(HttpServletRequest request) throws Throwable {
 		try {			
 			FlightData flight = flightBusiness.getByRequest(request);
 			flightBusiness.insert(flight);
