@@ -13,7 +13,7 @@
 	%>
 	<h2>Home Page</h2>
 	
-	<a href="">Create flight</a>
+	<a href="/airport/flight-form.jsp">Create flight</a>
 	
 	<a href="">Manage flights</a>
 	

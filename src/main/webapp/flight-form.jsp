@@ -13,11 +13,16 @@
 	%>
 	<h2>Flight Form</h2>
 	
-	<a href="">Create flight</a>
+	<a href="/airport/flight-form.jsp">Create flight</a>
 	
 	<a href="">Manage flights</a>
 	
-	<form action="#">
+	<br> <br>
+	
+	<form action="/airport/frontController" method="post">
+		<input type="text" id="command" name="command" value="FlightCommand" hidden="hidden">
+		<input type="text" id="action" name="action" value="createFlight" hidden="hidden">
+		
 		<label for="flightNumber">Flight number:</label>
 		<input type="number" id="flightNumber" name="flightNumber" min="0" step="1">
 		
