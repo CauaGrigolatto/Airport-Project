@@ -12,39 +12,39 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/airport/index.jsp">Airport</a>
 
-            <a class="navbar-brand" href="/airport/index.jsp">Airport</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/airport/manage-flights.jsp">Manage Flights</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/airport/flight-form.jsp">Flight Form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/airport/arriving-flights.jsp">Arriving</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/airport/boarding-flights.jsp">Boarding</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/airport/taking-off-flights.jsp">Taking Off</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="/airport/flight-form.jsp">Flight Form</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/airport/manage-flights.jsp">Manage Flights</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/airport/arriving-flights.jsp">Arriving</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/airport/boarding-flights.jsp">Boarding</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/airport/taking-off-flights.jsp">Taking Off</a></li>
+				</ul>
+				<form class="d-flex">
+					<a href="/airport/logout.jsp" class="btn btn-danger">Logout</a>
+				</form>
+			</div>
+		</div>
+	</nav>
 
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 </body>
 </html>
