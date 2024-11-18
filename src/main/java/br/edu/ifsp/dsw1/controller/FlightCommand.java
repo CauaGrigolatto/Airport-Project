@@ -20,6 +20,9 @@ public class FlightCommand implements Command {
 			if ("createFlight".equals(action)) {
 				return createFlight(request);
 			}
+			else if ("updateFlight".equals(action)) {
+				return updateFlight(request);
+			}
 			
 		}
 		catch(Throwable t) {
@@ -37,6 +40,18 @@ public class FlightCommand implements Command {
 		}
 		catch(Throwable t) {
 			System.out.println("error createFlight " + t);
+			throw t;
+		}
+	}
+	
+	private String updateFlight(HttpServletRequest request) throws Throwable {
+		try {
+			FlightData flight = flightBusiness.getByRequest(request);
+			flightBusiness.updateFlight(flight.getFlightNumber());
+			return "/manage-flights.jsp";
+		}
+		catch(Throwable t) {
+			System.out.println("error updateFlight " + t);
 			throw t;
 		}
 	}

@@ -39,7 +39,7 @@
 			<%
 			if (CollectionUtils.isEmpty(flights)) {
 				out.println("<tr>");
-		    	out.println("<td colspan='4' style='text-align:center;'>Não existem voos cadastrados :(</td>");
+		    	out.println("<td colspan='5' style='text-align:center;'>Não existem voos cadastrados :(</td>");
 			    out.println("</tr>");
 			}
 			else {				
@@ -48,6 +48,7 @@
 					out.println("<td>" + flight.getFlightNumber() + "</td>");
 					out.println("<td>" + flight.getCompany() + "</td>");
 					out.println("<td>" + flight.getTime() + "</td>");
+					out.println("<td>" + flight.getState().getClass().getSimpleName() + "</td>");
 					out.println("<td> <a href='/airport/frontController?command=FlightCommand&action=updateFlight&flightNumber=" + flight.getFlightNumber() + "'>Update flight</a> </td>");
 					out.println("</tr>");
 				}

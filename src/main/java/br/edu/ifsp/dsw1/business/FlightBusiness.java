@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public interface FlightBusiness {
 	List<FlightData> getAllFlights();
 	void insert(FlightData flight) throws InvalidObjectException;
-	void update(Long flightNumber) throws InvalidObjectException;
+	void updateFlight(Long flightNumber) throws InvalidObjectException;
 	FlightData getByRequest(HttpServletRequest request);
 	State getStateByRequest(HttpServletRequest request);
 }

@@ -31,7 +31,7 @@ public class FlightBusinessImp implements FlightBusiness {
 	}
 	
 	@Override
-	public void update(Long flightNumber) throws InvalidObjectException {
+	public void updateFlight(Long flightNumber) throws InvalidObjectException {
 		if (flightNumber == null) {
 			throw new InvalidObjectException("Flight does not exist.");
 		}
@@ -45,9 +45,7 @@ public class FlightBusinessImp implements FlightBusiness {
 			String company = request.getParameter("company");
 			String time = request.getParameter("time");
 			
-			if (StringUtils.isBlank(flightNumberString) ||
-					StringUtils.isBlank(company) ||
-					StringUtils.isBlank(time)) {
+			if (StringUtils.isBlank(flightNumberString)) {
 				throw new IllegalArgumentException();
 			}
 			
@@ -72,13 +70,13 @@ public class FlightBusinessImp implements FlightBusiness {
 		String stateString = request.getParameter("state");
 		
 		if (StringUtils.isNotBlank(stateString)) {
-			if (stateString.equals(Boarding.class.getName())) {
+			if (stateString.equals(Boarding.class.getSimpleName())) {
 				state = Boarding.getIntance();
 			}
-			else if (stateString.equals(TakingOff.class.getName())) {
+			else if (stateString.equals(TakingOff.class.getSimpleName())) {
 				state = TakingOff.getIntance();
 			}
-			else if (stateString.equals(TookOff.class.getName())) {
+			else if (stateString.equals(TookOff.class.getSimpleName())) {
 				state = TookOff.getIntance();
 			}
 		}
