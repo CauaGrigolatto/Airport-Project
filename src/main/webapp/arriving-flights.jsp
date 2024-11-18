@@ -13,13 +13,10 @@
 </head>
 <body>
 	<%
-	boolean isLogged = new LoginBusinessImp().isLogged(request);
-	if (isLogged) {
-		
-		List<FlightData> flights = new FlightBusinessImp().getAllFlights();
-		
+	List<FlightData> flights = new FlightBusinessImp().getArrivingFlights();
 	%>
-	<h2>Manage Flights</h2>
+
+	<h2>Arriving Flights</h2>
 	
 	<a href="/airport/flight-form.jsp">Create flight</a>
 	
@@ -55,7 +52,6 @@
 					out.println("<td>" + flight.getCompany() + "</td>");
 					out.println("<td>" + flight.getTime() + "</td>");
 					out.println("<td>" + flight.getState().getClass().getSimpleName() + "</td>");
-					out.println("<td> <a href='/airport/frontController?command=FlightCommand&action=updateFlight&flightNumber=" + flight.getFlightNumber() + "'>Update flight</a> </td>");
 					out.println("</tr>");
 				}
 			}
@@ -64,19 +60,5 @@
 		</tbody>
 	</table>
 	
-	<%
-	
-	
-	%>
-	
-	
-	<%
-	}
-	else {
-	%>
-	<p>You don't have permission to access this page</p>
-	<%
-	}
-	%>
 </body>
 </html>

@@ -13,4 +13,8 @@ public interface FlightBusiness {
 	void updateFlight(Long flightNumber) throws InvalidObjectException;
 	FlightData getByRequest(HttpServletRequest request);
 	State getStateByRequest(HttpServletRequest request);
+	
+	List<FlightData> getArrivingFlights();
+	List<FlightData> getBoardingFlights();
+	List<FlightData> getTakingOffFlights();
 }
