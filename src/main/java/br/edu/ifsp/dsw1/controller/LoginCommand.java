@@ -18,17 +18,22 @@ public class LoginCommand implements Command {
 			String action = (String) request.getParameter("action");
 			
 			if ("login".equals(action)) {
-				return login(request, response);
-			}			
+				return login(request);
+			}
+			else if ("logout".equals(action)) {
+				return logout(request);
+			}
+			
 		}
 		catch(Throwable t) {
 			request.setAttribute("error", t.getMessage());
+			return (String) request.getAttribute("targetErrorPage");
 		}
 		
 		return "/index.jsp";
 	}
-	
-	private String login(HttpServletRequest request, HttpServletResponse response) throws InvalidLoginException {		
+
+	private String login(HttpServletRequest request) throws InvalidLoginException {		
 		try {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -37,7 +42,13 @@ public class LoginCommand implements Command {
 		}
 		catch(Throwable t) {
 			System.out.println("error login " + t);
+			request.setAttribute("targetErrorPage", "/index.jsp");
 			throw t;
 		}
+	}
+	
+	private String logout(HttpServletRequest request) {
+		loginBusiness.terminateSession(request);
+		return "/index.jsp";
 	}
 }
