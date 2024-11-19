@@ -1,9 +1,11 @@
-package br.edu.ifsp.dsw1.controller;
+package br.edu.ifsp.dsw1.command;
 
 import java.io.IOException;
 
 import br.edu.ifsp.dsw1.business.FlightBusiness;
 import br.edu.ifsp.dsw1.business.FlightBusinessImp;
+import br.edu.ifsp.dsw1.business.LoginBusiness;
+import br.edu.ifsp.dsw1.business.LoginBusinessImp;
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class FlightCommand implements Command {
 	private static final FlightBusiness flightBusiness = new FlightBusinessImp();
+	private static final LoginBusiness loginBusiness = new LoginBusinessImp();
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +27,7 @@ public class FlightCommand implements Command {
 				return updateFlight(request);
 			}
 			
-			return "/home.jsp";
+			return "/index.jsp";
 		}
 		catch(Throwable t) {
 			System.out.println("error execute " + t);
@@ -34,10 +37,16 @@ public class FlightCommand implements Command {
 	}
 
 	private String createFlight(HttpServletRequest request) throws Throwable {
-		try {			
+		try {
+			loginBusiness.checkIntegrityOfAction(request);
+			
 			FlightData flight = flightBusiness.getByRequest(request);
 			flightBusiness.insert(flight);
 			return "/flight-form.jsp";
+		}
+		catch(IllegalAccessException e) {
+			request.setAttribute("targetErrorPage", "/index.jsp");
+			throw e;
 		}
 		catch(Throwable t) {
 			System.out.println("error createFlight " + t);
@@ -48,9 +57,15 @@ public class FlightCommand implements Command {
 	
 	private String updateFlight(HttpServletRequest request) throws Throwable {
 		try {
+			loginBusiness.checkIntegrityOfAction(request);
+			
 			FlightData flight = flightBusiness.getFlightByNumberInRequest(request);
 			flightBusiness.updateFlight(flight);
 			return "/manage-flights.jsp";
+		}
+		catch(IllegalAccessException e) {
+			request.setAttribute("targetErrorPage", "/index.jsp");
+			throw e;
 		}
 		catch(Throwable t) {
 			System.out.println("error updateFlight " + t);

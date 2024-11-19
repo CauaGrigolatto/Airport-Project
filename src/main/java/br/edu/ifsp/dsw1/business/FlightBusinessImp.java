@@ -94,7 +94,11 @@ public class FlightBusinessImp implements FlightBusiness {
 			flight.setState(state);
 
 			return flight;
-		} catch (Throwable t) {
+		} 
+		catch (NumberFormatException e) {
+			throw new IllegalArgumentException(MessagesBundle.INVALID_FLIGHT_NUMBER);
+		}
+		catch (Throwable t) {
 			System.out.println("error getByRequest " + t);
 			throw t;
 		}
@@ -137,7 +141,6 @@ public class FlightBusinessImp implements FlightBusiness {
 			return flight;
 		}
 		catch(NumberFormatException e) {
-			System.out.println("error getFlightByRequest " + e);
 			throw new IllegalArgumentException(MessagesBundle.INVALID_FLIGHT_NUMBER);
 		}
 	}

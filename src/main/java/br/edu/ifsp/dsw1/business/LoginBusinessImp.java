@@ -52,4 +52,9 @@ public class LoginBusinessImp implements LoginBusiness {
 		
 		return isLogged;
 	}
+	
+	@Override
+	public void checkIntegrityOfAction(HttpServletRequest request) throws IllegalAccessException {
+		if (!isLogged(request)) throw new IllegalAccessException(MessagesBundle.ACTION_DENIED_BY_PERMISSIONS);
+	}
 }

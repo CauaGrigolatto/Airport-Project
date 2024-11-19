@@ -30,8 +30,9 @@
 
 							<div class="mb-3">
 								<label for="flightNumber" class="form-label">Flight
-									Number:</label> <input type="text" class="form-control"
-									id="flightNumber" name="flightNumber"
+									Number:</label> <input class="form-control"
+									id="flightNumber" name="flightNumber" 
+									type="number" min="1" step="1"
 									placeholder="Enter flight number" required>
 							</div>
 

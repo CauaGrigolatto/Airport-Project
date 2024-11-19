@@ -9,4 +9,5 @@ public interface LoginBusiness {
 	HttpSession createSession(HttpServletRequest request);
 	void terminateSession(HttpServletRequest request);
 	boolean isLogged(HttpServletRequest request);
+	void checkIntegrityOfAction(HttpServletRequest request) throws IllegalAccessException;
 }

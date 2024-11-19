@@ -1,4 +1,4 @@
-package br.edu.ifsp.dsw1.controller;
+package br.edu.ifsp.dsw1.command;
 
 import java.io.IOException;
 
@@ -38,7 +38,7 @@ public class LoginCommand implements Command {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			loginBusiness.createSessionByLogin(username, password, request);
-			return "/home.jsp";
+			return "/manage-flights.jsp";
 		}
 		catch(Throwable t) {
 			System.out.println("error login " + t);

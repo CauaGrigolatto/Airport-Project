@@ -1,4 +1,4 @@
-package br.edu.ifsp.dsw1.controller;
+package br.edu.ifsp.dsw1.command;
 
 import java.io.IOException;
 

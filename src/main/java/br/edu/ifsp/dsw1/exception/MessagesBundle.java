@@ -6,4 +6,5 @@ public interface MessagesBundle {
 	final String FLIGHT_IS_NULL                     =   "Flight cannot be empty.";
 	final String FLIGHT_NUMBER_ALREADY_REGISTERED   =   "This flight number is already registered.";
 	final String INVALID_FLIGHT_NUMBER              =   "Flight number is invalid.";
+	final String ACTION_DENIED_BY_PERMISSIONS       =   "No permissions to do this action.";
 }
