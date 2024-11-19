@@ -2,6 +2,8 @@ package br.edu.ifsp.dsw1.business;
 
 import org.apache.commons.lang3.StringUtils;
 
+import br.edu.ifsp.dsw1.exception.InvalidLoginException;
+import br.edu.ifsp.dsw1.exception.MessagesBundle;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -10,14 +12,14 @@ public class LoginBusinessImp implements LoginBusiness {
 	private final String PASSWORD = "admin";
 	
 	@Override
-	public boolean validateLogin(String username, String password) {
+	public HttpSession createSessionByLogin(String username, String password, HttpServletRequest request) throws InvalidLoginException {
 		if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
 			if (USERNAME.equals(username) && PASSWORD.equals(password)) {
-				return true;
+				return createSession(request);
 			}
 		}
 		
-		return false;
+		throw new InvalidLoginException(MessagesBundle.invalidLogin);
 	}
 	
 	@Override

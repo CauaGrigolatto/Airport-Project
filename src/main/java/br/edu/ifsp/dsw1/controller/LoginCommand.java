@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.edu.ifsp.dsw1.business.LoginBusiness;
 import br.edu.ifsp.dsw1.business.LoginBusinessImp;
+import br.edu.ifsp.dsw1.exception.InvalidLoginException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,24 +14,30 @@ public class LoginCommand implements Command {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = (String) request.getParameter("action");
-		
-		if ("login".equals(action)) {
-			return login(request, response);
+		try {
+			String action = (String) request.getParameter("action");
+			
+			if ("login".equals(action)) {
+				return login(request, response);
+			}			
+		}
+		catch(Throwable t) {
+			request.setAttribute("error", t.getMessage());
 		}
 		
 		return "/index.jsp";
 	}
 	
-	private String login(HttpServletRequest request, HttpServletResponse response) {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
-		if (loginBusiness.validateLogin(username, password)) {
-			loginBusiness.createSession(request);
+	private String login(HttpServletRequest request, HttpServletResponse response) throws InvalidLoginException {		
+		try {
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			loginBusiness.createSessionByLogin(username, password, request);
 			return "/home.jsp";
 		}
-		
-		return "/index.jsp";
+		catch(Throwable t) {
+			System.out.println("error login " + t);
+			throw t;
+		}
 	}
 }

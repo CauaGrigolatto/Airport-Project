@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,24 @@
 </head>
 <body>
 	<jsp:include page="/includes/navbar.html"></jsp:include>
+	
+	<%
+	String error = (String) request.getAttribute("error");
+	
+	if (error != null) {
+	%>
+	
+	<div class="container mt-3">
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <div>
+                <span id="error-message"><%= error %></span>
+            </div>
+        </div>
+    </div>
+	
+	<%
+	}
+	%>
 
 	<div class="container mt-5">
 		<div class="row justify-content-center">
@@ -42,5 +61,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>
