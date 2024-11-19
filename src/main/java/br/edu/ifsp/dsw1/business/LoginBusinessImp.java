@@ -19,7 +19,7 @@ public class LoginBusinessImp implements LoginBusiness {
 			}
 		}
 		
-		throw new InvalidLoginException(MessagesBundle.invalidLogin);
+		throw new InvalidLoginException(MessagesBundle.INVALID_LOGIN);
 	}
 	
 	@Override

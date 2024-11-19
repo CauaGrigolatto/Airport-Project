@@ -8,7 +8,9 @@
 <title>Flight Form</title>
 </head>
 <body>
-	<jsp:include page="/includes/navbar.html"></jsp:include>
+	<jsp:include page="/includes/navbar.html" />
+	
+	<jsp:include page="/includes/error-message.jsp" />
 
 	<%
 	boolean isLogged = new LoginBusinessImp().isLogged(request);
@@ -22,9 +24,9 @@
 						<h5 class="card-title text-center mb-4">Flight Form</h5>
 						<form action="/airport/frontController" method="post">
 
-							<input type="text" id="command" name="command"
-								value="FlightCommand" hidden> <input type="text"
-								id="action" name="action" value="submit" hidden>
+							<input type="text" id="command" name="command" value="FlightCommand" hidden> 
+							
+							<input type="text" id="action" name="action" value="createFlight" hidden>
 
 							<div class="mb-3">
 								<label for="flightNumber" class="form-label">Flight

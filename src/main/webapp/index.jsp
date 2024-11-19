@@ -10,23 +10,7 @@
 <body>
 	<jsp:include page="/includes/navbar.html"></jsp:include>
 	
-	<%
-	String error = (String) request.getAttribute("error");
-	
-	if (error != null) {
-	%>
-	
-	<div class="container mt-3">
-        <div class="alert alert-danger d-flex align-items-center" role="alert">
-            <div>
-                <span id="error-message"><%= error %></span>
-            </div>
-        </div>
-    </div>
-	
-	<%
-	}
-	%>
+	<jsp:include page="/includes/error-message.jsp"></jsp:include>
 
 	<div class="container mt-5">
 		<div class="row justify-content-center">

@@ -24,12 +24,13 @@ public class FlightCommand implements Command {
 				return updateFlight(request);
 			}
 			
+			return "/home.jsp";
 		}
 		catch(Throwable t) {
 			System.out.println("error execute " + t);
-		}
-		
-		return "/home.jsp";			
+			request.setAttribute("error", t.getMessage());
+			return (String) request.getAttribute("targetErrorPage");
+		}		
 	}
 
 	private String createFlight(HttpServletRequest request) throws Throwable {
@@ -40,18 +41,20 @@ public class FlightCommand implements Command {
 		}
 		catch(Throwable t) {
 			System.out.println("error createFlight " + t);
+			request.setAttribute("targetErrorPage", "/flight-form.jsp");
 			throw t;
 		}
 	}
 	
 	private String updateFlight(HttpServletRequest request) throws Throwable {
 		try {
-			FlightData flight = flightBusiness.getByRequest(request);
-			flightBusiness.updateFlight(flight.getFlightNumber());
+			FlightData flight = flightBusiness.getFlightByNumberInRequest(request);
+			flightBusiness.updateFlight(flight);
 			return "/manage-flights.jsp";
 		}
 		catch(Throwable t) {
 			System.out.println("error updateFlight " + t);
+			request.setAttribute("targetErrorPage", "/manage-flights.jsp");
 			throw t;
 		}
 	}
