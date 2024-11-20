@@ -1,13 +1,14 @@
-package br.edu.ifsp.dsw1.model.observer;
+package br.edu.ifsp.dsw1.model.totem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 
-public class ArrivingObserverImp implements FlightDataObserver {
-	public List<FlightData> arrivingFlights = new ArrayList<FlightData>();
+public class ArrivingTotemImp implements FlightTotem {
+	private List<FlightData> arrivingFlights = new ArrayList<FlightData>();
 	
 	@Override
 	public void update(FlightData flight) {
@@ -17,6 +18,11 @@ public class ArrivingObserverImp implements FlightDataObserver {
 		else if (! arrivingFlights.contains(flight)) {
 			arrivingFlights.add(flight);
 		}
+	}
+	
+	@Override
+	public List<FlightData> getFlights() {
+		return Collections.unmodifiableList(arrivingFlights);
 	}
 	
 }

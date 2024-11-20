@@ -1,6 +1,5 @@
 package br.edu.ifsp.dsw1.business;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,22 +14,23 @@ import br.edu.ifsp.dsw1.model.flightstates.Boarding;
 import br.edu.ifsp.dsw1.model.flightstates.State;
 import br.edu.ifsp.dsw1.model.flightstates.TakingOff;
 import br.edu.ifsp.dsw1.model.flightstates.TookOff;
-import br.edu.ifsp.dsw1.model.observer.ArrivingObserverImp;
-import br.edu.ifsp.dsw1.model.observer.BoardingObserverImp;
-import br.edu.ifsp.dsw1.model.observer.TakingOffObserverImp;
+import br.edu.ifsp.dsw1.model.totem.ArrivingTotemImp;
+import br.edu.ifsp.dsw1.model.totem.BoardingTotemImp;
+import br.edu.ifsp.dsw1.model.totem.FlightTotem;
+import br.edu.ifsp.dsw1.model.totem.TakingOffTotemImp;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class FlightBusinessImp implements FlightBusiness {
 	private static final FlightDataCollection flightDAO = new FlightDataCollection();
 	
-	private static ArrivingObserverImp arrivingObserver = new ArrivingObserverImp();
-	private static BoardingObserverImp boardingObserver = new BoardingObserverImp();
-	private static TakingOffObserverImp takingOffObserver = new TakingOffObserverImp();
+	private static FlightTotem arrivingTotem = new ArrivingTotemImp();
+	private static FlightTotem boardingTotem = new BoardingTotemImp();
+	private static FlightTotem takingOffTotem = new TakingOffTotemImp();
 	
 	public FlightBusinessImp() {
-		flightDAO.register(arrivingObserver);
-		flightDAO.register(boardingObserver);
-		flightDAO.register(takingOffObserver);
+		flightDAO.register(arrivingTotem);
+		flightDAO.register(boardingTotem);
+		flightDAO.register(takingOffTotem);
 	}
 
 	@Override
@@ -40,17 +40,17 @@ public class FlightBusinessImp implements FlightBusiness {
 
 	@Override
 	public List<FlightData> getArrivingFlights() {
-		return Collections.unmodifiableList(arrivingObserver.arrivingFlights);
+		return arrivingTotem.getFlights();
 	}
 
 	@Override
 	public List<FlightData> getBoardingFlights() {
-		return Collections.unmodifiableList(boardingObserver.boardingFlights);
+		return boardingTotem.getFlights();
 	}
 
 	@Override
 	public List<FlightData> getTakingOffFlights() {
-		return Collections.unmodifiableList(takingOffObserver.takingOffFlights);
+		return takingOffTotem.getFlights();
 	}
 
 	@Override

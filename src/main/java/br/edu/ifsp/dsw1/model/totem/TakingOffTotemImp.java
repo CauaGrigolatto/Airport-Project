@@ -1,13 +1,14 @@
-package br.edu.ifsp.dsw1.model.observer;
+package br.edu.ifsp.dsw1.model.totem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.flightstates.TakingOff;
 
-public class TakingOffObserverImp implements FlightDataObserver {
-	public final List<FlightData> takingOffFlights = new ArrayList<FlightData>();
+public class TakingOffTotemImp implements FlightTotem {
+	private final List<FlightData> takingOffFlights = new ArrayList<FlightData>();
 	
 	@Override
 	public void update(FlightData flight) {
@@ -17,5 +18,10 @@ public class TakingOffObserverImp implements FlightDataObserver {
 		else if (! takingOffFlights.contains(flight)) {
 			takingOffFlights.add(flight);
 		}
+	}
+	
+	@Override
+	public List<FlightData> getFlights() {
+		return Collections.unmodifiableList(takingOffFlights);
 	}
 }
