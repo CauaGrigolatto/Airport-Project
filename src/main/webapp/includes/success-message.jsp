@@ -4,19 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Error Message</title>
+<title>Success Message</title>
 </head>
 <body>
 	<%
-	String error = (String) request.getAttribute("error");
+	String success = (String) request.getAttribute("success");
 	
-	if (error != null) {
+	if (success != null) {
 	%>
 
 	<div class="container mt-3">
-		<div class="alert alert-danger d-flex align-items-center" role="alert">
+		<div class="alert alert-success d-flex align-items-center" role="alert">
 			<div>
-				<span id="error-message"><%= error %></span>
+				<span id="error-message"><%= success %></span>
 			</div>
 		</div>
 	</div>

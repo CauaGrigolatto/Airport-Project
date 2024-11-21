@@ -6,6 +6,7 @@ import br.edu.ifsp.dsw1.business.FlightBusiness;
 import br.edu.ifsp.dsw1.business.FlightBusinessImp;
 import br.edu.ifsp.dsw1.business.LoginBusiness;
 import br.edu.ifsp.dsw1.business.LoginBusinessImp;
+import br.edu.ifsp.dsw1.feedback.MessagesBundle;
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -77,6 +78,7 @@ public class FlightCommand implements Command {
 			
 			FlightData flight = flightBusiness.getByRequest(request);
 			flightBusiness.insert(flight);
+			request.setAttribute("success", MessagesBundle.FLIGHT_CREATED_SUCCESSFULLY);
 			return "/flight-form.jsp";
 		}
 		catch(IllegalAccessException e) {

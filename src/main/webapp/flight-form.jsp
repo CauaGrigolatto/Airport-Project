@@ -11,6 +11,7 @@
 	<jsp:include page="/includes/navbar.html" />
 	
 	<jsp:include page="/includes/error-message.jsp" />
+	<jsp:include page="/includes/success-message.jsp" />
 
 	<%
 	boolean isLogged = new LoginBusinessImp().isLogged(request);
