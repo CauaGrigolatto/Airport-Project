@@ -5,6 +5,7 @@ import java.io.IOException;
 import br.edu.ifsp.dsw1.business.LoginBusiness;
 import br.edu.ifsp.dsw1.business.LoginBusinessImp;
 import br.edu.ifsp.dsw1.feedback.InvalidLoginException;
+import br.edu.ifsp.dsw1.feedback.MessagesBundle;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -64,6 +65,7 @@ public class LoginCommand implements Command {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 			loginBusiness.createSessionByLogin(username, password, request);
+			request.setAttribute("success", MessagesBundle.LOGGED_SUCCESSFULLY);
 			return "/manage-flights.jsp";
 		}
 		catch(Throwable t) {

@@ -25,4 +25,5 @@ public interface MessagesBundle {
 	final String INVALID_FLIGHT_NUMBER              =   "Flight number is invalid.";
 	final String ACTION_DENIED_BY_PERMISSIONS       =   "No permissions to do this action.";
 	final String FLIGHT_CREATED_SUCCESSFULLY        =   "Flight created successfully.";
+	final String LOGGED_SUCCESSFULLY                =   "Logged successfully.";
 }

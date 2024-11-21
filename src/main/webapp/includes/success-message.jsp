@@ -16,7 +16,7 @@
 	<div class="container mt-3">
 		<div class="alert alert-success d-flex align-items-center" role="alert">
 			<div>
-				<span id="error-message"><%= success %></span>
+				<span id="success-message"><%= success %></span>
 			</div>
 		</div>
 	</div>

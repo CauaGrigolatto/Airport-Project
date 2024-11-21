@@ -13,6 +13,9 @@
 </head>
 <body>
 	<jsp:include page="/includes/navbar.html"></jsp:include>
+	
+	<jsp:include page="/includes/error-message.jsp" />
+	<jsp:include page="/includes/success-message.jsp" />
 
 	<%
 	boolean isLogged = new LoginBusinessImp().isLogged(request);
@@ -38,7 +41,7 @@
 					<%
                     if (CollectionUtils.isEmpty(flights)) {
                         out.println("<tr>");
-                        out.println("<td colspan='5' class='text-center'>Não existem voos cadastrados :(</td>");
+                        out.println("<td colspan='5' class='text-center'>There are no registered flights :(</td>");
                         out.println("</tr>");
                     } else {                
                         for (FlightData flight : flights) {

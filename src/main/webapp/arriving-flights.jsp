@@ -35,7 +35,7 @@
 					<%
                     if (CollectionUtils.isEmpty(flights)) {
                         out.println("<tr>");
-                        out.println("<td colspan='4' class='text-center'>Não existem voos cadastrados :(</td>");
+                        out.println("<td colspan='4' class='text-center'>There are no registered flights :(</td>");
                         out.println("</tr>");
                     } else {                
                         for (FlightData flight : flights) {
