@@ -3,7 +3,6 @@
 
 ## Sobre o Projeto
 O **Airport Project** é uma aplicação para o gerenciamento de voos em um aeroporto, oferecendo as seguintes funcionalidades:
-a
 - **Cadastro de voos**
 - **Atualização do status dos voos**
 - **Exibição de informações sobre os voos**
