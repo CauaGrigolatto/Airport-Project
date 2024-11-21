@@ -65,7 +65,9 @@
 	}
 	else {
 	%>
-	<p>You don't have permission to access this page</p>
+	<div class="mt-5">
+        <h1 class="text-center">You don't have permission to access this page</h1>
+	</div>
 	<%
 	}
 	%>
