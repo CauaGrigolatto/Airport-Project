@@ -23,47 +23,47 @@ Além disso, o projeto implementa diversos **padrões de projeto**, que permitir
 1. **Sistema de autenticação por login**
 	Utilizando o username "admin" e a senha "admin", é possível logar no sistema e acessar as funcionalidades de um administrador.
 	
-	![Login input wrong credentials](./screenshots/login-1)
+	![Login input wrong credentials](screenshots/login-1.png)
 	
-	![Login error message](./screenshots/login-2)
+	![Login error message](screenshots/login-2.png)
 	
-	![Login input correct credentials](./screenshots/login-3)
+	![Login input correct credentials](screenshots/login-3.png)
 	
-	![Login success message](./screenshots/login-4)
+	![Login success message](screenshots/login-4.png)
 	
 2. **Cadastro de voos**
 	O cadastro de voos no sistema é realizado apenas na memória, simulando a inserção de dados em um banco de dados. Apenas administradores logados no sistema podem cadastrar voos.
 
-	![Insertion input](./screenshots/creation-1)
+	![Insertion input](screenshots/creation-1.png)
 	
-	![Insertion success message](./screenshots/creation-2)
+	![Insertion success message](screenshots/creation-2.png)
 	
-	![Insertion input repeated value](./screenshots/creation-3)
+	![Insertion input repeated value](screenshots/creation-3.png)
 	
-	![Insertion error message](./screenshots/creation-4)
+	![Insertion error message](screenshots/creation-4.png)
 
 3. **Gerenciamento do status de cada voo**  
 	Esta funcionalidade implementa o padrão **State**, permitindo que o status de um voo seja alterado conforme sua progressão (por exemplo, de *Arriving* para *Boarding*). Apenas administradores podem alterar o status, e é necessário estar logado para acessar essa funcionalidade.
 
-	![Update state before](./screenshots/update-1)
+	![Update state before](screenshots/update-1.png)
 	
-	![Update state after](./screenshots/update-2)
+	![Update state after](screenshots/update-2.png)
 
 4. **Lista de voos por status**  
 	Utilizando o padrão **Observer**, o sistema mantém os totens atualizados, com uma lista de voos de cada status. Qualquer usuário, logado ou não, pode consultar os totens e obter informações sobre os voos disponíveis.
 
-	![Login](./screenshots/list-1)
+	![Login](screenshots/list-1.png)
 	
-	![Login](./screenshots/list-2)
+	![Login](screenshots/list-2.png)
 	
-	![Login](./screenshots/list-3)
+	![Login](screenshots/list-3.png)
 
 5. **Logout e revogação das permissões**
 	Ao fazer logout, o usuário está impedido de cadastrar voos ou atualizar seus status.
 	
-	![Logout error message action](./screenshots/logout-1)
+	![Logout error message action](screenshots/logout-1.png)
 	
-	![Logout error message page access](./screenshots/logout-2)
+	![Logout error message page access](screenshots/logout-2.png)
 
 ## Padrões de Projeto
 
